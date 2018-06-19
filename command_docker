@@ -1,0 +1,217 @@
+    1  apt update
+    2  https://kanbanflow.com/
+    3  yum install -y python
+    4  apt install python
+    5  exit
+    6  ssh 192.168.99.30
+    7  ssh 192.168.99.20
+    8  ssh 192.168.99.10
+    9  ssh 192.168.99.30
+   10  ssh 192.168.99.10
+   11  ssh 192.168.99.30
+   12  sl
+   13  export /usr/games/sl
+   14  env
+   15  vim .profile
+   16  cowsay
+   17  vim /etc/profile
+   18  env
+   19  cowsay 
+   20  ifconfig 
+   21  cd /var/www/html/
+   22  ls al-
+   23  ls -al
+   24  cat index.php 
+   25  ls -al
+   26  rm -rf index.html 
+   27  puppet --version 
+   28  puppet agent -t --server devops.salas4linux.com.br
+   29  puppet cert list
+   30  puppet cert list sign docker.salas4linux.com.br
+   31  puppet agent -t --server devops.salas4linux.com.br
+   32  puppet cert list -a
+   33  puppet agent -t --server devops.salas4linux.com.br
+   34  ping devops.salas4linux.com.br
+   35  cat /etc/puppetlabs/puppet/puppet.conf 
+   36  puppet agent -t --server devops.salas4linux.com.br
+   37  htop
+   38  puppet agent -t --server devops.salas4linux.com.br
+   39  apt-get install fliged
+   40  apt-get install fli*
+   41  apt-get install fli* |grep flig
+   42  puppet agent -t --server devops.salas4linux.com.br
+   43  curl -l puppet://modules/base/bashrc_base
+   44  puppet agent -t --server devops.salas4linux.com.br
+   45  su - devops
+   46  netstat -rn |grep 80
+   47  netstat -atunp |grep 80
+   48  puppet agent -t --server devops.salas4linux.com.br
+   49  ss -atunp
+   50  puppet agent -t --server devops.salas4linux.com.br
+   51  ss -atunp
+   52  puppet agent -t --server devops.salas4linux.com.br
+   53  ss -atunp
+   54  tail -f /var/log/syslog 
+   55  curl -fsSL https://download.docker.com/linux/ubuntu/gpg
+   56  :q
+   57  puppet agent -t --server devops.salas4linux.com.br
+   58  docker
+   59  puppet agent -t --server devops.salas4linux.com.br
+   60  docker --version
+   61  doker ps 
+   62  docker ps
+   63  docker run debian /bin/ls /etc
+   64  docker ps -a
+   65  docker --name desafiador -it centos /bin/bash
+   66  docker run --name desafiador -it centos /bin/bash
+   67  uname -r
+   68  uname -a
+   69  docke ps -a
+   70  docker ps -a
+   71  docker run asa_noturna -h asa_noturna -it centos /bin/bash
+   72  docker run --name asa_noturna -h asa_noturna -it centos /bin/bash
+   73  ls -al
+   74  docker ps
+   75  docker pull fellipe85/nodeapp
+   76  docker ps 
+   77  docker run --name fellipe_teste -h nodeapp -t fellipe85/nodeapp
+   78  docker run --name fellipe_teste -h nodeapp -it fellipe85/nodeapp
+   79  docker
+   80  docker ps -a
+   81  docker start asa_noturna 
+   82  docker ps
+   83  docker attach asa_noturna
+   84  docker ps -a
+   85  docker attach asa_noturna
+   86  docker exec -it asa_noturna /bin/bash
+   87  docker exec -it asa_noturna /bin/ls /etc
+   88  docker ps -a
+   89  docker rm desafiador 
+   90  docker ps -a
+   91  docker system prune
+   92  docker ps
+   93  docker images
+   94  docker searh kali
+   95  docker run  
+   96  docker run  --name asa_noturna -h asa_noturna -it fellipe85/nodeapp
+   97  docker run --name asa_noturna -h asa_noturna -it fellipe85/nodeapp /bin/bash
+   98  docker run --name fellipe85 -h fellipe -it fellipe85/nodeapp /bin/bash
+   99  ls -al
+  100  docker rmi fellipe85/nodeapp
+  101  docker ps 
+  102  docker attach 540839ff27ce
+  103  docker run 540839ff27ce
+  104  docker rm -f 540839ff27ce
+  105  docker rmi fellipe85/nodeapp
+  106  ls -al
+  107  docker volume ls 
+  108  docker volume create --name dcwomen
+  109  df -h
+  110  cd /var/lib/docker/volumes/
+  111  ll 
+  112  cd dcwomen/
+  113  pwd
+  114  ls -al
+  115  cd _data/
+  116  ls -al
+  117  cd ../
+  118  ls -al
+  119  cd _data/
+  120  touch {arlequina,hera_venenosa,mulher_maravilha,mulher_gaviao}
+  121  ls -al
+  122  cd 
+  123  docker run -dti --name dcwoman -v dcwomen:/root/pasta_dcwomen centos /bin/bash
+  124  docker exec dc_women  /bin/ls 
+  125  docker ps a
+  126  docker ps -a
+  127  docker exec dcwoman /bin/ls /root/pasta_dcwomen/
+  128  docker exec dcwoman /bin/ls -la  /root/pasta_dcwomen/
+  129  docker exec -it dcwoman /bin/bash
+  130  cd /var/lib/docker/volumes/dcwomen/_data/
+  131  ls -al
+  132  cd
+  133  mkdir dcmen
+  134  touch superman{1..10}
+  135  ls -al
+  136  mv superman* dcmen/
+  137  ls -al
+  138  cd
+  139  docker run -dti --name supermen -v /root/dcmen/superman:/root/pasta_dcmen centos /bin/bash
+  140  docker ps -a
+  141  docker exec supermen /bin/dh -h
+  142  docker exec supermen /bin/dfh -h
+  143  docker exec supermen /bin/df -h
+  144  docker inspect p supermen
+  145  docker stats
+  146  docker run  -it --name server_nginx -h nginx -p 8082:80 nginx /bin/bash
+  147  docker ps
+  148  docker network create --subnet 10.0.0.0/16 dockerlan
+  149  docker network connect dockerlan server_nginx 
+  150  docker inspect
+  151  ifconfig 
+  152  docker run -it --name cliente_nginx -h cliente_nginx --ip 10.0.0.10 --net dockerlan centos /bin/bash
+  153  ls -la
+  154  docker inspect cliente_nginx
+  155  docker ps -a
+  156  docker run -it cliente nginx 
+  157  docker run -it cliente_nginx 
+  158  docker attach cliente_nginx 
+  159  docker ps 
+  160  docker commit cliente_nginx imagem_ifconfig
+  161  docker run -it --name ifconfig -h ifconfig imagem_ifconfig
+  162  curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+  163  chmod +x /usr/local/bin/docker-compose
+  164  ls -al
+  165  docker ps -a
+  166  docker attach ifconfig
+  167  docker-compose 
+  168  mkdir wordpres
+  169  mv wordpres/ wordpress
+  170  ls -al
+  171  cd wordpress/
+  172  ls -al
+  173  vim docker-compose.yml
+  174  docker-compose docker-compose.yml 
+  175  docker-compose config docker-compose.yml 
+  176  docker-compose 
+  177  docker-compose up -d
+  178  vim docker-compose.yml
+  179  docker-compose up -d
+  180  docker ps -a
+  181  docker attach wordpress_worpress_1
+  182  docker start wordpress_worpress_1
+  183  docker attach wordpress_worpress_1
+  184  docker ps -a
+  185  docker logs wordpress_worpress_1
+  186  vim docker-compose.yml
+  187  docker stop wordpress_mysql_server_1
+  188  docker rm wordpress_mysql_server_1
+  189  docker rm wordpress_worpress_1
+  190  vim docker-compose.yml 
+  191  docker-compose up -d
+  192  docker ps 
+  193  docker logs wordpress_worpress_1
+  194  docker run -d --name portainer -p8084:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+  195  cd
+  196  mkdir dockerfile
+  197  cd dockerfile/
+  198  ls -al
+  199  vim Dockerfile
+  200  docker build /root/dockerfile/ -t image_dockerfile
+  201  docker run -ti - P --name aquaman -h aquaman image_dockerfile 
+  202  docker ps
+  203  docker run -ti - P --name aquaman -h aquaman image_dockerfile 
+  204  docker save image_dockerfile -o aqualad.tar
+  205  ls -al
+  206  docker images
+  207  docker run -ti -P --name aquaman -h aquaman image_dockerfile 
+  208  ls -al
+  209  dockerps 
+  210  docker ps
+  211  docker images
+  212  docker rmi image_dockerfile -f
+  213  docker load -i aqualad.tar 
+  214  docker ps 
+  215  docker attach imagem_ifconfig
+  216  docker attach ifconfig
+  217  history >> command_docker
