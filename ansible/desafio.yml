@@ -1,0 +1,67 @@
+---
+- name: Playbook do Desafio
+  hosts: all
+  tasks:
+
+  - name: Parando NGINX
+    service:
+     name: nginx
+     state: stopped
+    ignore_errors: True
+
+  - name: Removendo nginx - Ubunutu
+    apt:
+     name: "{{ item }}"
+     state: absent
+     autoremove: yes
+     purge: yes
+    with_items:
+      - "nginx"
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Removendo o nginx - CentOS
+    yum:
+      name: "nginx"
+      state: absent
+    when: ansible_distribution == "CentOS"
+
+  - name: Instalando Pacotes - UBUNTU
+    apt:
+      name: "{{ item }}"
+      state: present
+      update_cache: yes
+    with_items:
+      - "apache2"
+      - "libapache2-mod-php7.0"
+      - "php7.0"
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Habilitando o modulo do php Ubuntu
+    action: command a2enmod php7.0
+    when: ansible_distribution == "Ubuntu"
+
+
+  - name: Instalando Pacotes - CENTOS
+    yum:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - "httpd"
+      - "php"
+    when: ansible_distribution == "CentOS"
+
+  - name: Eviando arquivo
+    copy:
+      src: index.php
+      dest: /var/www/html/index.php
+
+
+  - name: Restart servico apache2 
+    systemd: state=restarted name=apache2
+    when: ansible_distribution == "Ubuntu"
+
+
+  - name: Restart servico httpd   
+    systemd: state=restarted name=httpd
+    when: ansible_distribution == "CentOS"
+

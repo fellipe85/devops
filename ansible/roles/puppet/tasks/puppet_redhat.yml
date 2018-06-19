@@ -1,0 +1,10 @@
+    - name: Instalando o RPM 
+      yum: 
+        name: /root/puppetlabs-release-el-7.noarch.rpm
+        state: present
+
+    - name: Instalando o Agente do Puppet
+      yum:
+        name: puppet
+        state: present
+

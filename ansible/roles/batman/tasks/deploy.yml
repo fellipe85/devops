@@ -1,0 +1,9 @@
+    - name: Aplicacao
+      template: 
+        src: ../templates/index.html
+        dest: /var/www/html/index.html
+
+    - name: Baixando uma imagem 
+      geturl:
+        url: https://vxsan.com/content/images/2018/02/Ansible-Red.png
+        dest: /var/www/html/imagem.png

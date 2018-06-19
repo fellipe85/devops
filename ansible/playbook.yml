@@ -1,0 +1,68 @@
+---
+- name: Playbook de Testes
+  hosts: all
+  tasks:
+
+  - name: Verificando memoria
+    command: free -h
+ 
+  - name: Instalando o SL
+    apt: name=sl state=absent update_cache=yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Instalando Pacotes - UBUNTU
+    apt:
+      name: "{{ item }}"
+      state: present
+      update_cache: yes
+    with_items:
+      - "cowsay"
+      - "nginx"
+    notify: restart
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Adicionando Epel
+    yum:
+      name: "epel-release"
+    when: ansible_distribution == "CentOS"
+
+  - name: Instalando Pacotes - CENTOS
+    yum:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - "nginx"
+    when: ansible_distribution == "CentOS"
+
+  - name: Gerando o Path do ROOT
+    lineinfile:
+      path: /etc/profile
+      line: "export PATH=$PATH:/usr/games"
+      state: present
+
+  - name: Garantindo o hosts
+    lineinfile:
+      path: /etc/hosts
+      create: yes
+      line: "{{ item }}"
+    with_items:
+      - "192.168.99.10 devops.salas4linux.com.br devops"
+      - "192.168.99.20 devops.salas4linux.com.br docker"
+      - "192.168.99.30 devops.salas4linux.com.br automation"
+
+  - name: Criando um usuario
+    user:
+     name: "{{ username }}"
+     shell: /bin/bash
+     create_home: yes
+
+  - name: Eviando arquivo
+    copy:
+      src: arquivo
+      dest: /tmp/arquivo
+
+  handlers:
+  - name: restart
+    service: 
+      name: nginx
+      state: restarted

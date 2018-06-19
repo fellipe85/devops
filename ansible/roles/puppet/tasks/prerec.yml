@@ -1,0 +1,12 @@
+    - name: Baixando os arquivos do puppet Ubuntu
+      get_url: 
+        url: https://apt.puppetlabs.com/puppet5-release-xenial.deb
+        dest: /root
+      when: ansible_os_family == "Debian"
+
+    - name: Baixando os arquivos do puppet CentOS
+      get_url: 
+        url: https://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
+        dest: /root
+      when: ansible_os_family == "RedHat"
+

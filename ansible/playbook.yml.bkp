@@ -1,0 +1,56 @@
+---
+- name: Playbook de Testes
+  hosts: all 
+  tasks: 
+
+  - name: Vericando memoria
+    command: free -h
+
+  - name: Instalando o sl
+    apt: name=sl state=absent update_cache=yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Instalando CowSay
+    apt:
+     name: cowsay
+     state: present
+     update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+  
+  - name: Instalando CowSay - CentOS
+    yum: name=cowsay state=present
+    when: ansible_distribution == "CentOS"
+    #ignore_erros: True
+
+  - name: Gerando o PATH do ROOT
+    lineinfile:
+      path: /etc/profile
+      line: "export PATH=$PATH:/usr/games"
+      state: present
+
+  - name: Garantindo o Hosts da maquina
+    lineinfile:
+      path: /etc/hosts
+      create: yes
+      line: "{{ item }}"
+    with_items:
+     - "192.168.99.10 devops.salas4linux.com.br devops"
+     - "192.168.99.20 devops.salas4linux.com.br docker"
+     - "192.168.99.30 automation.salas4linux.com.br automation"
+
+  - name: Instalando nginx
+    apt: name=nginx state=present update_cache=yes 
+    when: ansible_distruibution == "Ubuntu"
+
+  - name: Instalando nginx - Centos
+    yum: name=nginx state=present
+    when: ansible_distribution == "CentOS"
+    notify: restart
+
+  handlers:
+  - name: restart
+    service:
+     name: nginx
+     state: restart
+
+
