@@ -1,0 +1,65 @@
+Yago Ésquines
+yago.almeida@4linux.com.br
+
+user: noturno
+senha: noturno
+
+#Duvida DOCKER: docker run -e MAQUINA=$(hostname) -ti debian /bin/bash
+
+##DESAFIO DOCKER
+**DESAFIO**
+-Pasta Padrão Puppet: /etc/puppetlabs/code/environments/prodution/
+
+-MODULO DOCKER
+-Fazer um modulo chamado DOCKER
+-E criar o arquivo 'modules/docker/manifests/init.pp' seguindo as informações da Documentação do DOCKER (https://docs.docker.com/install/)
+-Fazer a init.pp tanto para Like Debian quanto para Like Red Hat
+-Porem a classe só deve rodar na máquina docker.salas4linux.com.br (arquivo prodution/site.pp)
+
+-MODULO BASE
+-Parar e desabilitar o NGINX
+-Iniciar e habilitar a inicialização do APACHE2(Ubuntu) / HTTPD(CentOS)
+-Modulo tem que rodar apenas para as máquinas devops e automation
+
+##Doc Puppet
+https://puppet.com/docs/puppet/5.3/puppet_platform.html
+
+##Doc Docker
+https://docs.docker.com/install/
+
+##Docker HUB
+https://hub.docker.com
+
+##LAB DOCKER
+Cadastro : http://hub.docker.com/
+Laboratorio: https://labs.play-with-docker.com/
+
+##VagrantFile
+https://drive.google.com/open?id=1zWqiic6WcDEnfomB0-UuMiEVUtPR4lbl
+
+##Repositórios de Imagens do VAGRANT
+http://www.vagrantbox.es/	
+
+##CERTIFICAÇÕES DEVOPS
+http://www.itcerts.com.br/devops/
+https://www.exin.com/br/pt/qualification-program/exin-devops?language_content_entity=pt-br
+http://www.lpi.org/our-certifications/lpic-ot-devops-overview
+
+##Manifesto Agile
+http://agilemanifesto.org/
+
+##Explain Shell
+https://explainshell.com/
+
+##Canivete Suíço - Shell 
+http://aurelio.net/shell/canivete/
+
+**DESAFIO**
+-Remover o NGINX
+-Em todas as máquinas. Instalar 
+	UBUNTU: apache2, libapache2-mod-php7.0, php7.0
+	CENTOS: httpd, php
+
+-Habilitar o modulo php7.0 no Ubuntu
+      			a2enmod php7.0
+-Criar um index.php e enviar para /var/www/html/index.php	
