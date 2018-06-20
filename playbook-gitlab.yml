@@ -1,0 +1,23 @@
+---
+- name: Playbook de instacao gitlab
+  hosts: devops
+  tasks:
+    - name: Instalando pacotes necessarios
+      apt:
+        name: "{{item}}"
+        state: present
+        update_cache: yes
+      with_items:
+      - curl
+      - openssh-server
+      - ca-certificates
+
+    - name: Executando Script - GIT LAB
+      shell: curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh |bash 
+
+    - name:
+      apt:
+        name: gitlab-ce
+        state: present
+
+  
